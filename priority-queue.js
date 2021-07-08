@@ -2,7 +2,7 @@
  * Priority Queue
  * 最小优先队列
  */
-class PriorityQueue {
+export default class PriorityQueue {
   #data = [];
   #length = 0;
   #priorities = new Map();
