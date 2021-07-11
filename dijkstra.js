@@ -1,10 +1,13 @@
 import PriorityQueue from "./priority-queue";
 
 /**
- * Dijkstra 算法用于寻找单源最短路径。
+ * Dijkstra 算法用于寻找「非负加权有向图」单源最短路径。
  * 将 distances[startVertex] 初始化为 0，其他顶点的 distances[] 初始化为 Infinity；
  * 然后将 distances[] 中最小（利用 Priority Queue）的非树松弛（relaxation）顶点加入树种；
  * 如此这般，直到所有的顶点都加入树。
+ *
+ * 时间复杂度：O(ElogV)
+ * 空间复杂度：O(V)
  */
 
 /**
