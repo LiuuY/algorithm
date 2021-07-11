@@ -8,7 +8,7 @@ export default class DepthFirstOrder {
   #count = 0;
   #pre = [];
   #post = [];
-  #reverPost = [];
+  #reversePost = [];
 
   constructor(graph) {
     this.#marked = new Array(graph.getAllVertices().length).fill(false);
@@ -32,7 +32,7 @@ export default class DepthFirstOrder {
     });
 
     this.#post.push(startVertex);
-    this.#reverPost.unshift(startVertex);
+    this.#reversePost.unshift(startVertex);
   }
 
   get count() {
@@ -48,6 +48,6 @@ export default class DepthFirstOrder {
   }
 
   get reversePost() {
-    return this.#reverPost;
+    return this.#reversePost;
   }
 }
