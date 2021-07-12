@@ -61,16 +61,6 @@ export default class PriorityQueue {
   }
 
   /**
-   * Change priority of the item.
-   * @param {*} item - item we're going to re-prioritize.
-   * @param {number} priority - new item's priority.
-   */
-  changePriority(item, priority) {
-    this.delete(item);
-    this.insert(item, priority);
-  }
-
-  /**
    * Check if item already exists in a queue.
    * @param {*} item
    * @return {boolean}
