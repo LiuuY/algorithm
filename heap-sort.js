@@ -1,6 +1,9 @@
 /**
  * Heap Sort
  * 有小到大排序
+ * 时间复杂度：O(NlogN)
+ * 插入堆时间复杂度为 O(logN)
+ *
  * @param {number[]} nums
  * @return {number[]}
  */
