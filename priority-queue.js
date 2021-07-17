@@ -1,6 +1,8 @@
 /**
  * Priority Queue
  * 最小优先队列
+ * 时间复杂度：O(NlogN)
+ * 插入队列时间复杂度为 O(logN)
  */
 export default class PriorityQueue {
   #data = [];
