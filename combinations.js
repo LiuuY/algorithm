@@ -5,7 +5,7 @@
  * @param {number} k
  * @return {number[][]}
  */
-const combine = (n, k) => {
+const combineUsingBacktracking = (n, k) => {
   const ans = [];
   backtrack(n, k, [], ans, 1);
   return ans;
@@ -38,4 +38,33 @@ const backtrack = (n, k, combination, ans, start) => {
      */
     combination.pop();
   }
+};
+
+/**
+ * 递归法解决组合问题。
+ * @param {number} n
+ * @param {number} k
+ * @return {number[][]}
+ */
+const combineUsingRecursion = (n, k) => {
+  const ans = [];
+
+  /**
+   * 终止条件
+   */
+  if (k === 1) {
+    return new Array(n).fill(0).map((_, i) => [i + 1]);
+  }
+
+  /**
+   * [1,2,3,4] 组合由 4 和 [1,2,3] 的组合拼接而成
+   */
+  for (let i = n; i >= 1; --i) {
+    const combos = combine(i - 1, k - 1);
+    combos.forEach((c) => {
+      ans.push([i, ...c]);
+    });
+  }
+
+  return ans;
 };
