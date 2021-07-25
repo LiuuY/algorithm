@@ -1,6 +1,6 @@
 /**
  * 状态定义：dp[i] 为以 nums[i] 结尾的上升子序列长度
- * 状态转移方程：对于 nums[i]，且 j < i，如果 nums[i] > nums[j] 的 dp[j] 最大，dp[i] = dp[j] + 1。
+ * 状态转移方程：对于 i > j，如果 nums[i] > nums[j] 的 dp[j] 最大，dp[i] = dp[j] + 1。
  * 最后再找出 dp 数组中最大值。
  * 时间复杂度：O(n*n)
  * @param {number[]} nums
@@ -57,7 +57,7 @@ const lengthOfLISUsingGreedy = (nums) => {
        */
 
       /**
-       * 二分查找模板，我们需要找的是
+       * 二分查找模板，我们需要找的是左边界
        */
       let left = 1,
         right = len;
