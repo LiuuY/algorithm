@@ -3,7 +3,8 @@ import PriorityQueue from "./priority-queue";
 /**
  * Dijkstra 算法用于寻找「非负加权有向图」单源最短路径。
  * 将 distances[startVertex] 初始化为 0，其他顶点的 distances[] 初始化为 Infinity；
- * 然后将 distances[] 中最小（利用 Priority Queue）的非树松弛（relaxation）顶点加入树种；
+ * 然后找到 distances[] 中最小，即离 startVertx 距离最近的点（利用 Priority Queue）；
+ * 对该节点的邻居进行松弛，更新他们的距离；
  * 如此这般，直到所有的顶点都加入树。
  *
  * 时间复杂度：O(ElogV)
@@ -53,7 +54,7 @@ export default function dijkstra(graph, startVertex) {
           distances[currentVertex.getKey()] + edge.weight;
 
         /**
-         * 松弛
+         * 对该节点的邻居进行松弛
          */
         if (distanceToNeighborFromCurrent < distance) {
           distances[neighbor.getKey()] = distanceToNeighborFromCurrent;
@@ -66,7 +67,7 @@ export default function dijkstra(graph, startVertex) {
         }
 
         if (!queue.hasValue(neighbor)) {
-          queue.add(neighbor, distanceToNeighborFromCurrent);
+          queue.insert(neighbor, distanceToNeighborFromCurrent);
         }
       }
     });
